@@ -1,0 +1,12 @@
+{
+    "name": "heidelpay/php-customer-messages",
+    "description": "A libary for heidelpay messages.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stephano Vogel",
+            "email": "development@heidelpay.de"
+        }
+    ],
+    "require": {}
+}
