@@ -2,6 +2,7 @@
     "name": "heidelpay/php-customer-messages",
     "description": "A libary for heidelpay messages.",
     "type": "library",
+    "version" : "16.12.19",
     "keywords": ["heidelpay", "php", "payment", "error-messages", "errors", "messages"],
     "license": "Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.",
     "authors": [
@@ -10,6 +11,10 @@
             "email": "development@heidelpay.de"
         }
     ],
+    "support" : {
+        "email" : "development@heidelpay.de"
+    },
+    "homepage" : "https://dev.heidelpay.de",
     "require": {},
     "autoload" : {
         "psr-4": {
