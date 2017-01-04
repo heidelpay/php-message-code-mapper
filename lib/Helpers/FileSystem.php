@@ -4,14 +4,14 @@ namespace Heidelpay\CustomerMessages\Helpers;
 class FileSystem
 {
     /*
-     * @var resource
+     * @var resource $_handle
      */
     private $_handle;
 
     /**
-     * FileSystem constructor.
+     * The FileSystem constructor that creates the file handler.
      *
-     * @param $path
+     * @param string $path The path to the file that will be opened
      */
     public function __construct($path)
     {
@@ -30,7 +30,10 @@ class FileSystem
     }
 
     /**
-     * @return array
+     * Read the csv file and returns all
+     * of it's content as an array.
+     *
+     * @return array The content of the file.
      */
     public function getCsvContent()
     {

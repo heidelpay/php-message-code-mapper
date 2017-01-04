@@ -2,7 +2,7 @@
     "name": "heidelpay/php-customer-messages",
     "description": "A libary for heidelpay messages.",
     "type": "library",
-    "version" : "16.12.20",
+    "version" : "17.01.04",
     "keywords": ["heidelpay", "php", "payment", "error-messages", "errors", "messages"],
     "license": "Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.",
     "authors": [
@@ -20,7 +20,16 @@
             "Heidelpay\\CustomerMessages\\": "lib"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Heidelpay\\Tests\\CustomerMessages\\": "tests/unit"
+        }
+    },
     "require": {
         "php": "^5.6.0|^7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5",
+        "phpdocumentor/phpdocumentor" : "~2.9.0"
     }
 }

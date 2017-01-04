@@ -8,25 +8,35 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
 class CustomerMessage
 {
     /*
-     * @var FileSystem
+     * @var class A helper class for file handling.
      */
     private $_filesystem = null;
 
     /*
-     * @var string
+     * @var string The locale (IETF tag is recommended) to be used by the library.
      */
     private $_locale;
 
     /*
-     * @var string
+     * @var string The path of the locale file.
      */
     private $_path;
 
     /*
-     * @var array
+     * @var array Contains all customer messages.
      */
     private $_messages;
 
+
+    /**
+     * The CustomerMessage constructor, which accepts the locale and
+     * an optional different path that may not be the library's
+     * path - so that own locale files can be used.
+     *
+     * @param string $locale (optional) The locale for the language to be used.
+     * @param string $path (optional)
+     * @throws MissingLocaleFileException
+     */
     public function __construct($locale = 'en_US', $path = null)
     {
         $this->_locale = $locale;
@@ -51,7 +61,7 @@ class CustomerMessage
     /**
      * Returns the locale name.
      *
-     * @return string
+     * @return string Current locale
      */
     public function getLocale()
     {
@@ -61,7 +71,7 @@ class CustomerMessage
     /**
      * Returns the full path for the locale file.
      *
-     * @return string
+     * @return string Full file path of the locale file
      */
     public function getLocalePath()
     {
@@ -71,7 +81,7 @@ class CustomerMessage
     /**
      * Returns the path for the locale file.
      *
-     * @return string
+     * @return string  Path of the locale file
      */
     public function getPath()
     {
@@ -79,25 +89,39 @@ class CustomerMessage
     }
 
     /**
-     * Returns a message for the given error code.
+     * Returns a message for the given message code.
      *
-     * @param $errorcode
-     * @return string
+     * @param string $messagecode The heidelpay message code
+     * @return string The customer message that will be displayed
      */
-    public function getMessage($errorcode)
+    public function getMessage($messagecode)
     {
-        if( preg_match('/^\d{3}\.\d{3}\.\d{3}$/', $errorcode) ) {
-            $errorcode = 'HPError-' . $errorcode;
+        if( preg_match('/^\d{3}\.\d{3}\.\d{3}$/', $messagecode) ) {
+            $messagecode = 'HPError-' . $messagecode;
         }
 
-        // PHP7 way: return $this->_messages[$errorcode] ?? '';
-        return isset($this->_messages[$errorcode])
-            ? $this->_messages[$errorcode]
-            : "{$errorcode} - No message specified.";
+        return isset($this->_messages[$messagecode])
+            ? $this->_messages[$messagecode]
+            : $this->getDefaultMessage($messagecode);
     }
 
     /**
+     * Returns a default message, if the message code
+     * is not specified in the locale file.
      *
+     * @param string $messagecode The message code that will be displayed if no default is set.
+     * @return string The customer message that
+     */
+    public function getDefaultMessage($messagecode = '000.000.000')
+    {
+        return isset($this->_messages['Default'])
+            ? $this->_messages['Default']
+            : "An unspecific error occured. HPErrorcode: {$messagecode}";
+    }
+
+    /**
+     * Sets the $_messages array, where the
+     * customer messages are stored.
      */
     private function setContent()
     {
