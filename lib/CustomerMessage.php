@@ -1,4 +1,20 @@
 <?php
+/**
+ * This class provides a user-friendly printing of heidelpay error-codes.
+ *
+ * The locale refers to the .csv files in the lib/locales path, which contain
+ * the error codes and the appropriate messages.
+ * The path is important when own implementations have to be used.
+ *
+ * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
+ * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
+ * @link https://dev.heidelpay.de/php-customer-messages
+ * @author Stephano Vogel
+ *
+ * @package heidelpay
+ * @subpackage php-customer-messages
+ * @category php-customer-messages
+ */
 
 namespace Heidelpay\CustomerMessages;
 
@@ -110,7 +126,7 @@ class CustomerMessage
      * is not specified in the locale file.
      *
      * @param string $messagecode The message code that will be displayed if no default is set.
-     * @return string The customer message that
+     * @return string The customer message that will be displayed if the error code is not defined.
      */
     public function getDefaultMessage($messagecode = '000.000.000')
     {
@@ -120,8 +136,9 @@ class CustomerMessage
     }
 
     /**
-     * Sets the $_messages array, where the
-     * customer messages are stored.
+     * Sets the $_messages array, where the customer messages are stored.
+     *
+     * @return void
      */
     private function setContent()
     {
