@@ -8,8 +8,7 @@ use PHPUnit\Framework\TestCase;
 class CustomerMessagesTest extends TestCase {
 
     /**
-     * Unit test for the correct locale after
-     * object initialization.
+     * Unit test for the correct locale after object initialization.
      */
     public function testForCorrectLocale()
     {
@@ -18,13 +17,31 @@ class CustomerMessagesTest extends TestCase {
     }
 
     /**
-     * Unit test that checks if the default message will be printed
-     * if the provided message code does not exist, but the
-     * 'Default' value is present in the locale file.
+     * Unit test that checks if the output of getMessage will be the same with
+     * the default locale, nevertheless 'HPError-' is part of the parameter
+     * string or not.
+     */
+    public function testForCorrectMessageOutput()
+    {
+        // init instance with defaults (en_US locale, default path)
+        $message = new CustomerMessage();
+
+        // expect the correct message when the error number is provided.
+        $this->assertEquals('Card expired', $message->getMessage('100.100.303'));
+
+        // expect the correct message when 'HPError' is part of the parameter string
+        // instead of only the Error number.
+        $this->assertEquals('Card expired', $message->getMessage('HPError-100.100.303'));
+    }
+
+    /**
+     * Unit test that checks if the default message will be printed if the
+     * provided message code does not exist, but the 'Default' value
+     * is defined in the locale file.
      */
     public function testForDefaultMessageOutput()
     {
-        // initialize the class with default locale (en_US).
+        // initialize the class with defaults (en_US locale, library path).
         $message = new CustomerMessage();
 
         // we expect the default message, because error 987.654.321 might not exist
@@ -36,21 +53,13 @@ class CustomerMessagesTest extends TestCase {
     }
 
     /**
-     * Unit test that checks if an exception is thrown when
-     * the locale file is not present.
+     * Unit test that checks if an exception is thrown when the locale file is
+     * not present (e.g. because the selected language does not exist).
      */
     public function testForThrownMissingLocaleFileException()
     {
-        try {
-            // init the object with a not existing locale.
-            $message = new CustomerMessage('ab_CD');
-
-            // Print a message, if no exception has been thrown.
-            $this->fail('No exception has been thrown.');
-
-        } catch( MissingLocaleFileException $mlfe ) {
-            $this->assertEquals(404, $mlfe->getCode());
-        }
+        $this->expectException(MissingLocaleFileException::class);
+        $message = new CustomerMessage('ab_CD');
     }
 
 }
