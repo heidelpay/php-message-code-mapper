@@ -23,24 +23,16 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
 
 class CustomerMessage
 {
-    /*
-     * @var class A helper class for file handling.
-     */
+    /** @var FileSystem A helper class for file handling. */
     private $_filesystem = null;
 
-    /*
-     * @var string The locale (IETF tag is recommended) to be used by the library.
-     */
+    /** @var string The locale (IETF tag is recommended) to be used by the library. */
     private $_locale;
 
-    /*
-     * @var string The path of the locale file.
-     */
+    /** @var string The path of the locale file. */
     private $_path;
 
-    /*
-     * @var array Contains all customer messages.
-     */
+    /** @var array Contains all customer messages. */
     private $_messages;
 
 

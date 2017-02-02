@@ -1,3 +1,5 @@
+![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
+
 **heidelpay Customer Messages**
 
 This library provides user-friendly output of (error)-messages coming from
@@ -16,6 +18,7 @@ _manual Installation_
 Download the latest release from github and unpack it into a folder of your
 choice inside your project.
 
+
 ***2. Implementation***
 
 _Composer_
@@ -25,19 +28,18 @@ use Heidelpay\CustomerMessages\CustomerMessage;
 ```
 
 _manual Installation_
-
 ```
 require_once 'path/to/php-customer-messages/lib/CustomerMessage.php';
 ```
 
 Of course, the path needs to match the path from step 1.
 
+
 ***3. Usage***
 
 Assuming you have received an error code from one of our modules or the
 heidelpay PHP API and stored it in a variable called `$errorcode`.
 To get a message from that code, create a `CustomerMessage` instance:
-
 ```
 $instance = new \Heidelpay\CustomerMessages\CustomerMessage('de_DE');
 ```
@@ -55,10 +57,9 @@ provided in the constructor.
 By default, 'en_US' is used as the locale.
 
 
-Now you can return / print out the message by calling the `getNessage()` method:
+Now you can return or print out the message by calling the `getNessage()` method:
 
 ```return $instance->getMessage($errorcode);```
-
 ```echo $instance->getMessage($errorcode);```
 
 Error codes are accepted in either the 'XXX.XXX.XXX' or 'HP-Error-XXX.XXX.XXX' format.

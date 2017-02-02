@@ -1,6 +1,6 @@
 <?php
 /**
- * This class provides the simple reading of .csv files.
+ * This class provides the functionality for reading the locale files.
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
