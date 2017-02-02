@@ -1,50 +1,64 @@
 **heidelpay Customer Messages**
 
-Diese Bibliothek dient zur benutzerfreundlichen Darstellung von (Fehler-) Meldungen
-der heidelpay Schnittstelle.
+This library provides user-friendly output of (error)-messages coming from
+the heidelpay API.
+
 
 ***1. Installation***
 
-_via Composer_
+_Composer_
 ```
 composer require heidelpay/php-customer-messages
 ```
 
-_manuelle Installation_
+_manual Installation_
 
-Sie laden den aktuellen Release von github herunter und entpacken diesen in einen Ordner
-Ihrer Wahl.
+Download the latest release from github and unpack it into a folder of your
+choice inside your project.
 
-***2. Einbindung***
+***2. Implementation***
 
-_via Composer_
+_Composer_
 ```
 require_once 'path/to/autoload.php;
 use Heidelpay\CustomerMessages\CustomerMessage;
 ```
 
-_bei manueller Installation_
+_manual Installation_
+
 ```
 require_once 'path/to/php-customer-messages/lib/CustomerMessage.php';
 ```
-Der Pfad muss selbstverständlich an den realen Pfad der Bibliothek in der Applikation angepasst werden.
 
-***3. Verwendung***
+Of course, the path needs to match the path from step 1.
 
-Angenommen, Sie erhalten einen Fehlercode aus einem Shopmodul oder bei Verwendung des
-PHP SDKs. Dieser wird in einer Variable `$errorcode` gespeichert. Um den Inhalt dieses Fehlercodes in
-eine Fehlermeldung umzuwandeln, muss zu erst eine Instanz von `CustomerMessage` initialisiert werden:
+***3. Usage***
+
+Assuming you have received an error code from one of our modules or the
+heidelpay PHP API and stored it in a variable called `$errorcode`.
+To get a message from that code, create a `CustomerMessage` instance:
+
 ```
 $instance = new \Heidelpay\CustomerMessages\CustomerMessage('de_DE');
 ```
-Der Konstruktur nimmt zwei optionale Argumente: 1. Die Locale, 2. den Pfad zur Datei mit Codes und dazugehörigen
-Fehlermeldungen.
 
-Für die Locale 'de_DE' haben wir im Pfad _lib/locales_ bereits eine Liste an häufig auftretenden Fehlern
-bereitgestellt, der Pfad muss daher nicht mit angegeben werden. Bekommt der Konstruktur kein Argument,
-so ist 'en_US' die Standardsprache.
+The constructor takes two (optional) arguments:
 
-Nun kann über `$instance->getMessage($errorcode)` die Fehlermeldung in benutzerfreundlichem Format
-ausgegeben werden.
+1. The locale (e.g. 'en_US', 'de_DE')
+2. The path to the locales path (for example you want to use your own locale files) 
+containing the .csv files with the codes and messages.
 
-Akzeptiert werden diese Errorcodes im Format '123.456.789' oder auch 'HPError-123.456.789'.
+We provide 'de_DE' and 'en_US' locale files with this package. You can find them in the
+_lib/locales_ folder. If you want to use one of these, the path doesn't need to be
+provided in the constructor.
+
+By default, 'en_US' is used as the locale.
+
+
+Now you can return / print out the message by calling the `getNessage()` method:
+
+```return $instance->getMessage($errorcode);```
+
+```echo $instance->getMessage($errorcode);```
+
+Error codes are accepted in either the 'XXX.XXX.XXX' or 'HP-Error-XXX.XXX.XXX' format.
