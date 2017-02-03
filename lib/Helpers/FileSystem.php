@@ -17,9 +17,7 @@ namespace Heidelpay\CustomerMessages\Helpers;
 
 class FileSystem
 {
-    /*
-     * @var resource $_handle
-     */
+    /** @var resource The file handler for the locale file */
     private $_handle;
 
     /**
