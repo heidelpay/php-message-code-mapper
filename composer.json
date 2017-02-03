@@ -30,6 +30,6 @@
     "require-dev": {
         "heidelpay/phpdocumentor": "^2.9.1",
         "friendsofphp/php-cs-fixer": "^2.0",
-        "phpunit/phpunit": "~5"
+        "phpunit/phpunit": "~5.7"
     }
 }
