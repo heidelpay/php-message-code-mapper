@@ -4,22 +4,23 @@
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
+ *
  * @link https://dev.heidelpay.de/php-customer-messages
+ *
  * @author Stephano Vogel
  *
  * @package heidelpay
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
 namespace Heidelpay\Tests\CustomerMessages;
 
 use Heidelpay\CustomerMessages\CustomerMessage;
 use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
 use PHPUnit\Framework\TestCase;
 
-class CustomerMessagesTest extends TestCase {
-
+class CustomerMessagesTest extends TestCase
+{
     /**
      * Unit test for the correct locale after object initialization.
      *
@@ -106,7 +107,7 @@ class CustomerMessagesTest extends TestCase {
         // we expect the default message, because error 987.654.321 might not exist
         // in the default locale file en_US.csv.
         $this->assertEquals(
-            'Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie uns f&uumlr weitere Informationen.',
+            'Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie uns f&uuml;r weitere Informationen.',
             $message->getMessage('987.654.321')
         );
     }
@@ -122,5 +123,4 @@ class CustomerMessagesTest extends TestCase {
         $this->expectException(MissingLocaleFileException::class);
         $message = new CustomerMessage('ab_CD');
     }
-
 }
