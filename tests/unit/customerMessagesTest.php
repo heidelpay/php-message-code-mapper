@@ -106,7 +106,7 @@ class CustomerMessagesTest extends TestCase {
         // we expect the default message, because error 987.654.321 might not exist
         // in the default locale file en_US.csv.
         $this->assertEquals(
-            'Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie uns f&uumlr weitere Informationen.',
+            'Es ist ein Fehler aufgetreten. Bitte kontaktieren Sie uns f&uuml;r weitere Informationen.',
             $message->getMessage('987.654.321')
         );
     }
