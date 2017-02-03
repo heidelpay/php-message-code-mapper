@@ -4,14 +4,15 @@
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
+ *
  * @link https://dev.heidelpay.de/php-customer-messages
+ *
  * @author Stephano Vogel
  *
  * @package heidelpay
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
 namespace Heidelpay\CustomerMessages\Helpers;
 
 class FileSystem
@@ -54,10 +55,10 @@ class FileSystem
 
         // instead of returning an array for each element, we create
         // an array with the error-code as key and the message as value.
-        while ( $content = fgetcsv($this->_handle) ) {
+        while ($content = fgetcsv($this->_handle)) {
 
             // 0 = HPError-Code, 1 = Message
-            if ( isset($content[0]) && isset($content[1]) ) {
+            if (isset($content[0]) && isset($content[1])) {
                 $ret[$content[0]] = $content[1];
             }
         }
