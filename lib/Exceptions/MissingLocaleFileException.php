@@ -1,4 +1,9 @@
 <?php
+
+namespace Heidelpay\CustomerMessages\Exceptions;
+
+use Exception;
+
 /**
  * This class is used for indicating a missing locale file for the library usage.
  *
@@ -11,10 +16,6 @@
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
-namespace Heidelpay\CustomerMessages\Exceptions;
-
-use Exception;
 
 class MissingLocaleFileException extends Exception
 {

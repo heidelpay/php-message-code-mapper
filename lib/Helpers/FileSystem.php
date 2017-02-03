@@ -1,4 +1,7 @@
 <?php
+
+namespace Heidelpay\CustomerMessages\Helpers;
+
 /**
  * This class provides the functionality for reading the locale files.
  *
@@ -11,8 +14,6 @@
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
-namespace Heidelpay\CustomerMessages\Helpers;
 
 class FileSystem
 {

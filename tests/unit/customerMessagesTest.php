@@ -1,4 +1,11 @@
 <?php
+
+namespace Heidelpay\Tests\CustomerMessages;
+
+use Heidelpay\CustomerMessages\CustomerMessage;
+use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
+use PHPUnit\Framework\TestCase;
+
 /**
  * This class provides unit tests for the CustomerMessage implementation.
  *
@@ -12,14 +19,8 @@
  * @category php-customer-messages
  */
 
-namespace Heidelpay\Tests\CustomerMessages;
-
-use Heidelpay\CustomerMessages\CustomerMessage;
-use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
-use PHPUnit\Framework\TestCase;
-
-class CustomerMessagesTest extends TestCase {
-
+class CustomerMessagesTest extends TestCase
+{
     /**
      * Unit test for the correct locale after object initialization.
      *
