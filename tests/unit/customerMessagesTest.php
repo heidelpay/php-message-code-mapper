@@ -1,10 +1,6 @@
 <?php
 
-namespace Heidelpay\Tests\CustomerMessages;
-
-use Heidelpay\CustomerMessages\CustomerMessage;
-use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
-use PHPUnit\Framework\TestCase;
+namespace Heidelpay\CustomerMessages\Tests\Unit;
 
 /**
  * This class provides unit tests for the CustomerMessage implementation.
@@ -18,6 +14,10 @@ use PHPUnit\Framework\TestCase;
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
+
+use Heidelpay\CustomerMessages\CustomerMessage;
+use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
+use PHPUnit\Framework\TestCase;
 
 class CustomerMessagesTest extends TestCase
 {
@@ -121,7 +121,9 @@ class CustomerMessagesTest extends TestCase
     public function throwMissingLocaleFileException()
     {
         $this->expectException(MissingLocaleFileException::class);
+
         $message = new CustomerMessage('ab_CD');
+        echo $message->getMessage('HPError-100.100.101');
     }
 
 }
