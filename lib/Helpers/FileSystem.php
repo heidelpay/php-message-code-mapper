@@ -18,7 +18,7 @@ namespace Heidelpay\CustomerMessages\Helpers;
 class FileSystem
 {
     /** @var resource The file handler for the locale file */
-    private $_handle;
+    private $handle;
 
     /**
      * The FileSystem constructor that creates the file handler.
@@ -28,7 +28,7 @@ class FileSystem
     public function __construct($path)
     {
         // we just want to read files, so mode 'r' will be fine at all.
-        $this->_handle = fopen($path, 'r');
+        $this->handle = fopen($path, 'r');
     }
 
     /**
@@ -38,7 +38,7 @@ class FileSystem
     {
         // no matter what, we want to close the handle as
         // soon as this instance is not needed anymore.
-        fclose($this->_handle);
+        fclose($this->handle);
     }
 
     /**
@@ -53,16 +53,15 @@ class FileSystem
 
         // instead of returning an array for each element, we create
         // an array with the error-code as key and the message as value.
-        while ( $content = fgetcsv($this->_handle) ) {
-
+        while ($content = fgetcsv($this->handle)) {
             // 0 = HPError-Code, 1 = Message
-            if ( isset($content[0]) && isset($content[1]) ) {
+            if (isset($content[0]) && isset($content[1])) {
                 $ret[$content[0]] = $content[1];
             }
         }
 
         // reset the file pointer, if we want to read the file again.
-        rewind($this->_handle);
+        rewind($this->handle);
 
         // return the array.
         return $ret;

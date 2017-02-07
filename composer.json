@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Heidelpay\\Tests\\CustomerMessages\\": "tests/unit"
+            "Heidelpay\\CustomerMessages\\Tests\\": "tests/"
         }
     },
     "require": {
