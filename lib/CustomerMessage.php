@@ -21,7 +21,6 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
 class CustomerMessage
 {
     /** @var FileSystem A helper class for file handling. */
@@ -56,7 +55,7 @@ class CustomerMessage
 
         // if the locale file does not exist, we better throw an exception
         // instead of just let PHP error_log something.
-        if (! file_exists($this->getLocalePath())) {
+        if (!file_exists($this->getLocalePath())) {
             throw new MissingLocaleFileException(
                 "Locale file {$this->getLocalePath()} does not exist."
             );

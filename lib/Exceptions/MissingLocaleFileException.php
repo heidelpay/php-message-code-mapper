@@ -16,7 +16,6 @@ use Exception;
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
 class MissingLocaleFileException extends Exception
 {
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Heidelpay\CustomerMessages\Tests\Unit;
+namespace Tests\Unit;
 
 /**
  * This class provides unit tests for the CustomerMessage implementation.
