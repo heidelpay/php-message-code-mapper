@@ -2,23 +2,24 @@
 
 namespace Tests\Unit;
 
+use Heidelpay\CustomerMessages\CustomerMessage;
+use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
+use PHPUnit\Framework\TestCase;
+
 /**
  * This class provides unit tests for the CustomerMessage implementation.
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
+ *
  * @link https://dev.heidelpay.de/php-customer-messages
+ *
  * @author Stephano Vogel
  *
  * @package heidelpay
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-
-use Heidelpay\CustomerMessages\CustomerMessage;
-use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
-use PHPUnit\Framework\TestCase;
-
 class CustomerMessagesTest extends TestCase
 {
     /**
@@ -125,5 +126,4 @@ class CustomerMessagesTest extends TestCase
         $message = new CustomerMessage('ab_CD');
         echo $message->getMessage('HPError-100.100.101');
     }
-
 }

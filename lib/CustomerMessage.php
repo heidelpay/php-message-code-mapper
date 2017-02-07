@@ -13,8 +13,10 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
  * The path is important when own implementations have to be used.
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
- * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
+ * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved
+ *
  * @link https://dev.heidelpay.de/php-customer-messages
+ *
  * @author Stephano Vogel
  *
  * @package heidelpay
@@ -35,14 +37,14 @@ class CustomerMessage
     /** @var array Contains all customer messages. */
     private $messages;
 
-
     /**
      * The CustomerMessage constructor, which accepts the locale and
      * an optional different path that may not be the library's
      * path - so that own locale files can be used.
      *
      * @param string $locale (optional) The locale for the language to be used.
-     * @param string $path (optional)
+     * @param string $path   (optional)
+     *
      * @throws MissingLocaleFileException
      */
     public function __construct($locale = 'en_US', $path = null)
@@ -100,6 +102,7 @@ class CustomerMessage
      * Returns a message for the given message code.
      *
      * @param string $messagecode The heidelpay message code
+     *
      * @return string The customer message that will be displayed
      */
     public function getMessage($messagecode)
@@ -118,6 +121,7 @@ class CustomerMessage
      * is not specified in the locale file.
      *
      * @param string $messagecode The message code that will be displayed if no default is set.
+     *
      * @return string The customer message that will be displayed if the error code is not defined.
      */
     public function getDefaultMessage($messagecode = '000.000.000')
@@ -138,5 +142,4 @@ class CustomerMessage
         $this->filesystem = new FileSystem($this->getLocalePath());
         $this->messages = $this->filesystem->getCsvContent();
     }
-
 }
