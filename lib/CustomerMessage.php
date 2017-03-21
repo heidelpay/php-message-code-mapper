@@ -43,7 +43,7 @@ class CustomerMessage
      * path - so that own locale files can be used.
      *
      * @param string $locale (optional) The locale for the language to be used.
-     * @param string $path   (optional)
+     * @param string $path (optional)
      *
      * @throws MissingLocaleFileException
      */
@@ -51,7 +51,7 @@ class CustomerMessage
     {
         $this->locale = $locale;
 
-        if ($path) {
+        if ($path !== null && is_string($path)) {
             $this->path = $path;
         }
 
