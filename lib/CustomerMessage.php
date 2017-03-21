@@ -13,7 +13,7 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
  * The path is important when own implementations have to be used.
  *
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
- * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved
+ * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
  *
  * @link https://dev.heidelpay.de/php-customer-messages
  *
@@ -26,16 +26,16 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
 class CustomerMessage
 {
     /** @var FileSystem A helper class for file handling. */
-    private $filesystem = null;
+    private $_filesystem = null;
 
     /** @var string The locale (IETF tag is recommended) to be used by the library. */
-    private $locale;
+    private $_locale;
 
     /** @var string The path of the locale file. */
-    private $path;
+    private $_path;
 
     /** @var array Contains all customer messages. */
-    private $messages;
+    private $_messages;
 
     /**
      * The CustomerMessage constructor, which accepts the locale and
@@ -43,13 +43,13 @@ class CustomerMessage
      * path - so that own locale files can be used.
      *
      * @param string $locale (optional) The locale for the language to be used.
-     * @param string $path (optional)
+     * @param string $path   (optional)
      *
      * @throws MissingLocaleFileException
      */
     public function __construct($locale = 'en_US', $path = null)
     {
-        $this->locale = $locale;
+        $this->_locale = $locale;
 
         if ($path !== null && is_string($path)) {
             $this->path = $path;
@@ -57,7 +57,7 @@ class CustomerMessage
 
         // if the locale file does not exist, we better throw an exception
         // instead of just let PHP error_log something.
-        if (!file_exists($this->getLocalePath())) {
+        if (! file_exists($this->getLocalePath())) {
             throw new MissingLocaleFileException(
                 "Locale file {$this->getLocalePath()} does not exist."
             );
@@ -75,7 +75,7 @@ class CustomerMessage
      */
     public function getLocale()
     {
-        return $this->locale;
+        return $this->_locale;
     }
 
     /**
@@ -95,7 +95,7 @@ class CustomerMessage
      */
     public function getPath()
     {
-        return $this->path ?: __DIR__ . '/locales';
+        return $this->_path ?: __DIR__ . '/locales';
     }
 
     /**
@@ -111,8 +111,8 @@ class CustomerMessage
             $messagecode = 'HPError-' . $messagecode;
         }
 
-        return isset($this->messages[$messagecode])
-            ? $this->messages[$messagecode]
+        return isset($this->_messages[$messagecode])
+            ? $this->_messages[$messagecode]
             : $this->getDefaultMessage($messagecode);
     }
 
@@ -126,8 +126,8 @@ class CustomerMessage
      */
     public function getDefaultMessage($messagecode = '000.000.000')
     {
-        return isset($this->messages['Default'])
-            ? $this->messages['Default']
+        return isset($this->_messages['Default'])
+            ? $this->_messages['Default']
             : "An unspecific error occured. HPErrorcode: {$messagecode}";
     }
 
@@ -139,7 +139,7 @@ class CustomerMessage
     private function setContent()
     {
         // open the fs to retrieve file information.
-        $this->filesystem = new FileSystem($this->getLocalePath());
-        $this->messages = $this->filesystem->getCsvContent();
+        $this->_filesystem = new FileSystem($this->getLocalePath());
+        $this->_messages = $this->_filesystem->getCsvContent();
     }
 }
