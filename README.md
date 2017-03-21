@@ -1,4 +1,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/heidelpay/php-customer-messages.svg?style=flat-square)](https://packagist.org/packages/heidelpay/php-customer-messages)
+[![Coverage Status](https://coveralls.io/repos/github/heidelpay/php-customer-messages/badge.svg?branch=master)](https://coveralls.io/github/heidelpay/php-customer-messages?branch=master)
+[![Build Status](https://travis-ci.org/heidelpay/php-customer-messages.svg?branch=master)](https://travis-ci.org/heidelpay/php-customer-messages)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/7c9b7df7c38841dbb4d485fe83b86eb4)](https://www.codacy.com/app/heidelpay/php-customer-messages/dashboard)
 
 ![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
