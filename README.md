@@ -1,5 +1,5 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/heidelpay/php-customer-messages.svg?style=flat-square)](https://packagist.org/packages/heidelpay/php-customer-messages)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/7c9b7df7c38841dbb4d485fe83b86eb4)](https://www.codacy.com/app/heidelpay/magento2/dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7c9b7df7c38841dbb4d485fe83b86eb4)](https://www.codacy.com/app/heidelpay/php-customer-messages/dashboard)
 
 ![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
 
