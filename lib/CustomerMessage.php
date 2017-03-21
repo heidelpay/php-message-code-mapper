@@ -1,4 +1,10 @@
 <?php
+
+namespace Heidelpay\CustomerMessages;
+
+use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
+use Heidelpay\CustomerMessages\Helpers\FileSystem;
+
 /**
  * This class provides a user-friendly printing of heidelpay error-codes.
  *
@@ -17,11 +23,6 @@
  * @subpackage php-customer-messages
  * @category php-customer-messages
  */
-namespace Heidelpay\CustomerMessages;
-
-use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
-use Heidelpay\CustomerMessages\Helpers\FileSystem;
-
 class CustomerMessage
 {
     /** @var FileSystem A helper class for file handling. */
@@ -50,8 +51,8 @@ class CustomerMessage
     {
         $this->_locale = $locale;
 
-        if ($path) {
-            $this->_path = $path;
+        if ($path !== null && is_string($path)) {
+            $this->path = $path;
         }
 
         // if the locale file does not exist, we better throw an exception
