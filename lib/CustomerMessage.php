@@ -25,17 +25,20 @@ use Heidelpay\CustomerMessages\Helpers\FileSystem;
  */
 class CustomerMessage
 {
+    /** @var string the default locale to be used */
+    const DEFAULT_LOCALE = 'en_US';
+
     /** @var FileSystem A helper class for file handling. */
-    private $_filesystem = null;
+    private $fileSystem = null;
 
     /** @var string The locale (IETF tag is recommended) to be used by the library. */
-    private $_locale;
+    private $locale;
 
     /** @var string The path of the locale file. */
-    private $_path;
+    private $path;
 
     /** @var array Contains all customer messages. */
-    private $_messages;
+    private $messages;
 
     /**
      * The CustomerMessage constructor, which accepts the locale and
@@ -49,13 +52,18 @@ class CustomerMessage
      */
     public function __construct($locale = 'en_US', $path = null)
     {
-        $this->_locale = $locale;
+        $this->locale = $locale;
 
         if ($path !== null && is_string($path)) {
             $this->path = $path;
         }
 
-        // if the locale file does not exist, we better throw an exception
+        // if the locale file does not exist, we set the default locale
+        if (! file_exists($this->getLocalePath())) {
+            $this->locale = self::DEFAULT_LOCALE;
+        }
+
+        // if the locale file still does not exist, we better throw an exception
         // instead of just let PHP error_log something.
         if (! file_exists($this->getLocalePath())) {
             throw new MissingLocaleFileException(
@@ -75,7 +83,7 @@ class CustomerMessage
      */
     public function getLocale()
     {
-        return $this->_locale;
+        return $this->locale;
     }
 
     /**
@@ -95,7 +103,7 @@ class CustomerMessage
      */
     public function getPath()
     {
-        return $this->_path ?: __DIR__ . '/locales';
+        return $this->path ?: __DIR__ . '/locales';
     }
 
     /**
@@ -111,8 +119,8 @@ class CustomerMessage
             $messagecode = 'HPError-' . $messagecode;
         }
 
-        return isset($this->_messages[$messagecode])
-            ? $this->_messages[$messagecode]
+        return isset($this->messages[$messagecode])
+            ? $this->messages[$messagecode]
             : $this->getDefaultMessage($messagecode);
     }
 
@@ -126,8 +134,8 @@ class CustomerMessage
      */
     public function getDefaultMessage($messagecode = '000.000.000')
     {
-        return isset($this->_messages['Default'])
-            ? $this->_messages['Default']
+        return isset($this->messages['Default'])
+            ? $this->messages['Default']
             : "An unspecific error occured. HPErrorcode: {$messagecode}";
     }
 
@@ -139,7 +147,7 @@ class CustomerMessage
     private function setContent()
     {
         // open the fs to retrieve file information.
-        $this->_filesystem = new FileSystem($this->getLocalePath());
-        $this->_messages = $this->_filesystem->getCsvContent();
+        $this->fileSystem = new FileSystem($this->getLocalePath());
+        $this->messages = $this->fileSystem->getCsvContent();
     }
 }
