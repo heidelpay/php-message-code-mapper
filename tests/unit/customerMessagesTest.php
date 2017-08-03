@@ -123,7 +123,8 @@ class CustomerMessagesTest extends TestCase
     {
         $this->expectException(MissingLocaleFileException::class);
 
-        $message = new CustomerMessage('ab_CD');
+        $message = new CustomerMessage('ab_CD', 'invalid/path');
+        $this->assertEquals('en_US', $message->getLocale());
         echo $message->getMessage('HPError-100.100.101');
     }
 }
