@@ -5,7 +5,7 @@
 
 ![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
 
-**heidelpay Message Code Mapper**
+**heidelpay message code mapper**
 
 This library provides user-friendly output of (error)-messages coming from
 the heidelpay API.
