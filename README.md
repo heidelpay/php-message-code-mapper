@@ -1,7 +1,10 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/heidelpay/php-message-code-mapper.svg?style=flat-square)](https://packagist.org/packages/heidelpay/php-message-code-mapper)
-[![Coverage Status](https://coveralls.io/repos/github/heidelpay/php-message-code-mapper/badge.svg?branch=master)](https://coveralls.io/github/heidelpay/php-message-code-mapper?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1ffcac3178b54be18ec9816ef2db8e4e)](https://www.codacy.com/app/heidelpay/php-message-code-mapper?utm_source=github.com&utm_medium=referral&utm_content=heidelpay/php-messages-code-mapper&utm_campaign=Badge_Coverage)
 [![Build Status](https://travis-ci.org/heidelpay/php-message-code-mapper.svg?branch=master)](https://travis-ci.org/heidelpay/php-message-code-mapper)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1ffcac3178b54be18ec9816ef2db8e4e)](https://www.codacy.com/app/heidelpay/php-message-code-mapper?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=heidelpay/php-messages-code-mapper&amp;utm_campaign=Badge_Grade)
+[![PHP 5.6](https://img.shields.io/badge/php-5.6-blue.svg)](http://www.php.net)
+[![PHP 7.0](https://img.shields.io/badge/php-7.0-blue.svg)](http://www.php.net)
+[![PHP 7.1](https://img.shields.io/badge/php-7.1-blue.svg)](http://www.php.net)
 
 ![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
 
