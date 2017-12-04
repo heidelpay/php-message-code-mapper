@@ -1,6 +1,6 @@
 <?php
 
-namespace Heidelpay\CustomerMessages\Exceptions;
+namespace Heidelpay\MessageCodeMapper\Exceptions;
 
 use Exception;
 
@@ -10,13 +10,13 @@ use Exception;
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
  *
- * @link https://dev.heidelpay.de/php-customer-messages
+ * @link https://dev.heidelpay.de/php-messages-code-mapper
  *
  * @author Stephano Vogel
  *
  * @package heidelpay
- * @subpackage php-customer-messages
- * @category php-customer-messages
+ * @subpackage php-messages-code-mapper
+ * @category php-messages-code-mapper
  */
 class MissingLocaleFileException extends Exception
 {

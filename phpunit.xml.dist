@@ -11,7 +11,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="heidelpay customerMessages Testsuite">
+        <testsuite name="heidelpay MessageCodeMapper Testsuite">
             <directory>./tests/unit/</directory>
         </testsuite>
     </testsuites>

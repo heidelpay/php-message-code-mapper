@@ -1,6 +1,6 @@
 {
-    "name": "heidelpay/php-customer-messages",
-    "description": "A libary for heidelpay messages.",
+    "name": "heidelpay/php-message-code-mapper",
+    "description": "A library to convert heidelpay message codes into customer friendly messages.",
     "type": "library",
     "keywords": ["heidelpay", "php", "payment", "error-messages", "errors", "messages"],
     "license": "Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.",
@@ -16,7 +16,7 @@
     "homepage" : "https://dev.heidelpay.de",
     "autoload" : {
         "psr-4": {
-            "Heidelpay\\CustomerMessages\\": "lib"
+            "Heidelpay\\MessageCodeMapper\\": "lib"
         }
     },
     "autoload-dev": {

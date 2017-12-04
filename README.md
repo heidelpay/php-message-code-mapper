@@ -1,11 +1,11 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/heidelpay/php-customer-messages.svg?style=flat-square)](https://packagist.org/packages/heidelpay/php-customer-messages)
-[![Coverage Status](https://coveralls.io/repos/github/heidelpay/php-customer-messages/badge.svg?branch=master)](https://coveralls.io/github/heidelpay/php-customer-messages?branch=master)
-[![Build Status](https://travis-ci.org/heidelpay/php-customer-messages.svg?branch=master)](https://travis-ci.org/heidelpay/php-customer-messages)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/7c9b7df7c38841dbb4d485fe83b86eb4)](https://www.codacy.com/app/heidelpay/php-customer-messages/dashboard)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/heidelpay/php-messages-code-mapper.svg?style=flat-square)](https://packagist.org/packages/heidelpay/php-messages-code-mapper)
+[![Coverage Status](https://coveralls.io/repos/github/heidelpay/php-messages-code-mapper/badge.svg?branch=master)](https://coveralls.io/github/heidelpay/php-messages-code-mapper?branch=master)
+[![Build Status](https://travis-ci.org/heidelpay/php-messages-code-mapper.svg?branch=master)](https://travis-ci.org/heidelpay/php-messages-code-mapper)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/7c9b7df7c38841dbb4d485fe83b86eb4)](https://www.codacy.com/app/heidelpay/php-messages-code-mapper/dashboard)
 
 ![Logo](https://dev.heidelpay.de/devHeidelpay_400_180.jpg)
 
-**heidelpay Customer Messages**
+**heidelpay Message Code Mapper**
 
 This library provides user-friendly output of (error)-messages coming from
 the heidelpay API.
@@ -15,7 +15,7 @@ the heidelpay API.
 
 _Composer_
 ```
-composer require heidelpay/php-customer-messages
+composer require heidelpay/php-message-code-mapper
 ```
 
 _manual Installation_
@@ -29,12 +29,12 @@ choice inside your project.
 _Composer_
 ```
 require_once 'path/to/autoload.php;
-use Heidelpay\CustomerMessages\CustomerMessage;
+use Heidelpay\MessageCodeMapper\CustomerMessage;
 ```
 
 _manual Installation_
 ```
-require_once 'path/to/php-customer-messages/lib/CustomerMessage.php';
+require_once 'path/to/php-message-code-mapper/lib/CustomerMessage.php';
 ```
 
 Of course, the path needs to match the path from step 1.
@@ -44,9 +44,9 @@ Of course, the path needs to match the path from step 1.
 
 Assuming you have received an error code from one of our modules or the
 heidelpay PHP API and stored it in a variable called `$errorcode`.
-To get a message from that code, create a `CustomerMessage` instance:
+To get a message from that code, create a `MessageCodeMapper` instance:
 ```
-$instance = new \Heidelpay\CustomerMessages\CustomerMessage('de_DE');
+$instance = new \Heidelpay\MessageCodeMapper\CustomerMessage('de_DE');
 ```
 
 The constructor takes two (optional) arguments:

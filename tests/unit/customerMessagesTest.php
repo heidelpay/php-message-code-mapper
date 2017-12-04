@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Heidelpay\CustomerMessages\CustomerMessage;
-use Heidelpay\CustomerMessages\Exceptions\MissingLocaleFileException;
+use Heidelpay\MessageCodeMapper\CustomerMessage;
+use Heidelpay\MessageCodeMapper\Exceptions\MissingLocaleFileException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,15 +12,15 @@ use PHPUnit\Framework\TestCase;
  * @license Use of this software requires acceptance of the License Agreement. See LICENSE file.
  * @copyright Copyright © 2016-present Heidelberger Payment GmbH. All rights reserved.
  *
- * @link https://dev.heidelpay.de/php-customer-messages
+ * @link https://dev.heidelpay.de/php-messages-code-mapper
  *
  * @author Stephano Vogel
  *
  * @package heidelpay
- * @subpackage php-customer-messages
- * @category php-customer-messages
+ * @subpackage php-messages-code-mapper
+ * @category php-messages-code-mapper
  */
-class CustomerMessagesTest extends TestCase
+class MessageCodeMapperTest extends TestCase
 {
     /**
      * Unit test for the correct locale after object initialization.
