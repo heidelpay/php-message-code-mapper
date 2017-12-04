@@ -23,7 +23,7 @@ use Heidelpay\MessageCodeMapper\Helpers\FileSystem;
  * @subpackage php-messages-code-mapper
  * @category php-messages-code-mapper
  */
-class CustomerMessage
+class MessageCodeMapper
 {
     /** @var string the default locale to be used */
     const DEFAULT_LOCALE = 'en_US';

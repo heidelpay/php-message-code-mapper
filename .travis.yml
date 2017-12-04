@@ -37,4 +37,4 @@ script:
   - ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
 after_success:
-  - travis_retry php vendor/bin/coveralls -v
+  - php vendor/bin/codacycoverage clover build/logs/clover.xml

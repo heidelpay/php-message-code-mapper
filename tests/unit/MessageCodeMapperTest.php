@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Heidelpay\MessageCodeMapper\CustomerMessage;
+use Heidelpay\MessageCodeMapper\MessageCodeMapper;
 use Heidelpay\MessageCodeMapper\Exceptions\MissingLocaleFileException;
 use PHPUnit\Framework\TestCase;
 
@@ -29,7 +29,7 @@ class MessageCodeMapperTest extends TestCase
      */
     public function displayCorrectLocale()
     {
-        $message = new CustomerMessage('de_DE');
+        $message = new MessageCodeMapper('de_DE');
         $this->assertEquals('de_DE', $message->getLocale());
     }
 
@@ -43,7 +43,7 @@ class MessageCodeMapperTest extends TestCase
     public function displayCorrectMessageOutputEn()
     {
         // init instance with defaults (en_US locale, default path)
-        $message = new CustomerMessage();
+        $message = new MessageCodeMapper();
 
         // expect the correct message when the error number is provided.
         $this->assertEquals('Card expired', $message->getMessage('100.100.303'));
@@ -63,7 +63,7 @@ class MessageCodeMapperTest extends TestCase
     public function displayCorrectMessageOutputDe()
     {
         // init instance with defaults (en_US locale, default path)
-        $message = new CustomerMessage('de_DE');
+        $message = new MessageCodeMapper('de_DE');
 
         // expect the correct message when the error number is provided.
         $this->assertEquals('Die Karte ist abgelaufen', $message->getMessage('100.100.303'));
@@ -83,7 +83,7 @@ class MessageCodeMapperTest extends TestCase
     public function displayDefaultMessageOutputEn()
     {
         // initialize the class with defaults (en_US locale, library path).
-        $message = new CustomerMessage();
+        $message = new MessageCodeMapper();
 
         // we expect the default message, because error 987.654.321 might not exist
         // in the default locale file en_US.csv.
@@ -103,7 +103,7 @@ class MessageCodeMapperTest extends TestCase
     public function displayDefaultMessageOutputDe()
     {
         // initialize the class with defaults (en_US locale, library path).
-        $message = new CustomerMessage('de_DE');
+        $message = new MessageCodeMapper('de_DE');
 
         // we expect the default message, because error 987.654.321 might not exist
         // in the default locale file en_US.csv.
@@ -123,7 +123,7 @@ class MessageCodeMapperTest extends TestCase
     {
         $this->expectException(MissingLocaleFileException::class);
 
-        $message = new CustomerMessage('ab_CD', 'invalid/path');
+        $message = new MessageCodeMapper('ab_CD', 'invalid/path');
         $this->assertEquals('en_US', $message->getLocale());
         echo $message->getMessage('HPError-100.100.101');
     }
