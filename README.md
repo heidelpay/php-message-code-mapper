@@ -65,7 +65,7 @@ provided in the constructor.
 By default, 'en_US' is used as the locale.
 
 
-Now you can return or print out the message by calling the `getNessage()` method:
+Now you can return or print out the message by calling the `getMessage()` method:
 
 ```return $instance->getMessage($errorcode);```
 ```echo $instance->getMessage($errorcode);```
