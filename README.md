@@ -32,12 +32,12 @@ choice inside your project.
 _Composer_
 ```
 require_once 'path/to/autoload.php;
-use Heidelpay\MessageCodeMapper\CustomerMessage;
+use Heidelpay\MessageCodeMapper\MessageCodeMapper;
 ```
 
 _manual Installation_
 ```
-require_once 'path/to/php-message-code-mapper/lib/CustomerMessage.php';
+require_once 'path/to/php-message-code-mapper/lib/MessageCodeMapper.php';
 ```
 
 Of course, the path needs to match the path from step 1.
@@ -49,7 +49,7 @@ Assuming you have received an error code from one of our modules or the
 heidelpay PHP API and stored it in a variable called `$errorcode`.
 To get a message from that code, create a `MessageCodeMapper` instance:
 ```
-$instance = new \Heidelpay\MessageCodeMapper\CustomerMessage('de_DE');
+$instance = new \Heidelpay\MessageCodeMapper\MessageCodeMapper('de_DE');
 ```
 
 The constructor takes two (optional) arguments:
