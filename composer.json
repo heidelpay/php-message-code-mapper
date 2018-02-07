@@ -3,7 +3,7 @@
     "description": "A library to convert heidelpay message codes into customer friendly messages.",
     "type": "library",
     "keywords": ["heidelpay", "php", "payment", "error-messages", "errors", "messages"],
-    "license": "Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Stephano Vogel",
