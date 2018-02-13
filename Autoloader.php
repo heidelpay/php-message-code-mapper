@@ -25,7 +25,7 @@ class Autoloader
      *
      * @param string $dir
      */
-    public static function requireAllPhpOnce($dir = self::BASE_PATH)
+    public static function requireAllLibs($dir = self::BASE_PATH)
     {
         /** @var array $files */
         $files = glob("$dir/*");
@@ -33,7 +33,7 @@ class Autoloader
             if (preg_match('/\.php$/', $file)) {
                 require_once $file;
             } elseif (is_dir($file)) {
-                self::requireAllPhpOnce($file);
+                self::requireAllLibs($file);
             }
         }
     }

@@ -35,7 +35,7 @@ class AutoloaderTest extends \PHPUnit_Framework_TestCase
         $filesIncludedBefore  = preg_grep($regex, get_included_files());
 
         $autoloader = new MessageMapperAutoloader();
-        $autoloader::requireAllPhpOnce();
+        $autoloader::requireAllLibs();
         $filesIncludedAfter  = preg_grep($regex, get_included_files());
 
         $phpFilesInLib = $this->getPhpFilesInLib($path);
@@ -48,38 +48,35 @@ class AutoloaderTest extends \PHPUnit_Framework_TestCase
 
     private function getPhpFilesInLib($path)
     {
-        $files = [];
-
-
         if (!is_dir($path)) {
-            return $files;
+            return [];
         }
 
-        $items = scandir($path, SCANDIR_SORT_NONE);
 
+        // iterate through all items in the given path
+        $items = scandir($path, SCANDIR_SORT_DESCENDING);
+
+        $files = [];
         $fileArrays = [];
-
         foreach ($items as $item) {
+            // leave current and previous path out
             if ($item === '.' || $item === '..') {
                 continue;
             }
 
+            // prepare complete path of the current item
             $itemPath = $path . '\\' . $item;
-            $files = [];
             if (is_dir($itemPath)) {
-                $files = $this->getPhpFilesInLib($itemPath);
+                // scan subdirectories as well
+                $fileArrays[] = $this->getPhpFilesInLib($itemPath);
             } else {
                 if (pathinfo($itemPath)['extension'] === 'php') {
-                    $files = [$itemPath];
+                    $files[] = $itemPath;
                 }
             }
-            $fileArrays[] = $files;
         }
+        $fileArrays[] = $files;
 
         return array_merge(...$fileArrays);
     }
-
-
-
-
 }
