@@ -19,7 +19,8 @@ namespace Tests\Unit;
 
 use FileLoader as MessageMapperFileLoader;
 
-require __DIR__ . '\..\..\FileLoader.php';
+/** @noinspection PhpIncludeInspection */
+require realpath(__DIR__ . '/../../FileLoader.php');
 
 class FileLoaderTest extends \PHPUnit_Framework_TestCase
 {
