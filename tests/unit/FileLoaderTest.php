@@ -17,24 +17,24 @@
  */
 namespace Tests\Unit;
 
-use Autoloader as MessageMapperAutoloader;
+use FileLoader as MessageMapperFileLoader;
 
-require __DIR__ . '\..\..\Autoloader.php';
+require __DIR__ . '\..\..\FileLoader.php';
 
-class AutoloaderTest extends \PHPUnit_Framework_TestCase
+class FileLoaderTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test that autoloader includes all required classes.
+     * Test that file loader includes all php files.
      *
      * @test
      */
-    public function autoloaderShouldProduceAnErrorWhenTheFilesAreNotLoaded()
+    public function autoloaderShouldLoadAllPhpFilesInLibDirectory()
     {
         $path = realpath(__DIR__. '\\..\\..\\lib\\');
         $regex = '/^' . str_replace('\\', '\\\\', $path) . '\\\\.*\.php$/';
         $filesIncludedBefore  = preg_grep($regex, get_included_files());
 
-        $autoloader = new MessageMapperAutoloader();
+        $autoloader = new MessageMapperFileLoader();
         $autoloader::requireAllLibs();
         $filesIncludedAfter  = preg_grep($regex, get_included_files());
 
@@ -51,7 +51,6 @@ class AutoloaderTest extends \PHPUnit_Framework_TestCase
         if (!is_dir($path)) {
             return [];
         }
-
 
         // iterate through all items in the given path
         $items = scandir($path, SCANDIR_SORT_DESCENDING);

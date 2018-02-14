@@ -16,7 +16,7 @@
  * @category ${CATEGORY}
  */
 
-class Autoloader
+class FileLoader
 {
     const BASE_PATH = __DIR__.DIRECTORY_SEPARATOR. 'lib';
 
