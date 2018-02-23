@@ -19,6 +19,7 @@
     <filter>
         <whitelist>
             <directory>./lib/</directory>
+            <file>./FileLoader.php</file>
         </whitelist>
     </filter>
 </phpunit>

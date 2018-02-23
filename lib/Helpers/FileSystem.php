@@ -29,7 +29,7 @@ class FileSystem
     public function __construct($path)
     {
         // we just want to read files, so mode 'r' will be fine at all.
-        $this->handle = fopen($path, 'r');
+        $this->handle = fopen($path, 'rb');
     }
 
     /**
@@ -56,7 +56,7 @@ class FileSystem
         // an array with the error-code as key and the message as value.
         while ($content = fgetcsv($this->handle)) {
             // 0 = HPError-Code, 1 = Message
-            if (isset($content[0]) && isset($content[1])) {
+            if (isset($content[0], $content[1])) {
                 $ret[$content[0]] = $content[1];
             }
         }
