@@ -75,10 +75,11 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
             if (is_dir($itemPath)) {
                 // scan subdirectories as well
                 $fileArrays[] = $this->getPhpFilesInLib($itemPath);
-            } else {
-                if (pathinfo($itemPath, PATHINFO_EXTENSION) === 'php') {
-                    $files[] = $itemPath;
-                }
+                continue;
+            }
+
+            if (pathinfo($itemPath, PATHINFO_EXTENSION) === 'php') {
+                $files[] = $itemPath;
             }
         }
         $fileArrays[] = $files;
