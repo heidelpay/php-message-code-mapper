@@ -44,7 +44,7 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
         fwrite(STDOUT, 'Loaded Files before: ' . print_r($filesIncludedBefore, 1));
         fwrite(STDOUT, 'Loaded Files after: ' . print_r($filesIncludedAfter, 1));
 
-        $this->assertGreaterThan(0, 0, 'Error: There are no files loaded at all!');
+        $this->assertGreaterThan(0, count($filesIncludedAfter), 'Error: There are no files loaded at all!');
 
         foreach ($phpFilesInLib as $item) {
             $this->assertArrayNotHasKey($item, array_flip($filesIncludedBefore));
