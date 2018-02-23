@@ -31,18 +31,19 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function autoloaderShouldLoadAllPhpFilesInLibDirectory()
     {
-        $path = realpath(__DIR__. '\\..\\..\\lib\\');
-        $regex = '/^' . str_replace('\\', '\\\\', $path) . '\\\\.*\.php$/';
-        $filesIncludedBefore  = preg_grep($regex, get_included_files());
+        $path = realpath(__DIR__. '/../../lib/');
+        $regex = '/^' . str_replace(DIRECTORY_SEPARATOR, '\\' . DIRECTORY_SEPARATOR, $path) . '.*\.php$/';
 
-        $autoloader = new MessageMapperFileLoader();
-        $autoloader::requireAllLibs();
+        $filesIncludedBefore  = preg_grep($regex, get_included_files());
+        MessageMapperFileLoader::requireAllLibs();
         $filesIncludedAfter  = preg_grep($regex, get_included_files());
 
+        // files that should be loaded
         $phpFilesInLib = $this->getPhpFilesInLib($path);
 
         fwrite(STDOUT, 'Loaded Files before: ' . print_r($filesIncludedBefore, 1));
         fwrite(STDOUT, 'Loaded Files after: ' . print_r($filesIncludedAfter, 1));
+        fwrite(STDOUT, 'Files that should have been loaded: ' . print_r($phpFilesInLib, 1));
 
         $this->assertGreaterThan(0, count($filesIncludedAfter), 'Error: There are no files loaded at all!');
 
@@ -70,12 +71,12 @@ class FileLoaderTest extends \PHPUnit_Framework_TestCase
             }
 
             // prepare complete path of the current item
-            $itemPath = $path . '\\' . $item;
+            $itemPath = $path . DIRECTORY_SEPARATOR . $item;
             if (is_dir($itemPath)) {
                 // scan subdirectories as well
                 $fileArrays[] = $this->getPhpFilesInLib($itemPath);
             } else {
-                if (pathinfo($itemPath)['extension'] === 'php') {
+                if (pathinfo($itemPath, PATHINFO_EXTENSION) === 'php') {
                     $files[] = $itemPath;
                 }
             }
