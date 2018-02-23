@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Heidelpay\MessageCodeMapper\MessageCodeMapper;
 use Heidelpay\MessageCodeMapper\Exceptions\MissingLocaleFileException;
+use Heidelpay\MessageCodeMapper\MessageCodeMapper;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,6 +26,7 @@ class MessageCodeMapperTest extends TestCase
      * Unit test for the correct locale after object initialization.
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function displayCorrectLocale()
@@ -40,6 +41,7 @@ class MessageCodeMapperTest extends TestCase
      * string or not.
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function displayCorrectMessageOutputEn()
@@ -61,6 +63,7 @@ class MessageCodeMapperTest extends TestCase
      * string or not.
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function displayCorrectMessageOutputDe()
@@ -82,6 +85,7 @@ class MessageCodeMapperTest extends TestCase
      * is defined in the en_US locale file.
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function displayDefaultMessageOutputEn()
@@ -103,6 +107,7 @@ class MessageCodeMapperTest extends TestCase
      * is defined in the de_DE locale file.
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function displayDefaultMessageOutputDe()
@@ -123,6 +128,7 @@ class MessageCodeMapperTest extends TestCase
      * not present (e.g. because the selected language does not exist).
      *
      * @test
+     *
      * @throws MissingLocaleFileException
      */
     public function throwMissingLocaleFileException()
